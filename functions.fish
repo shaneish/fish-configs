@@ -8,6 +8,25 @@ function arrout
     end
 end
 
+function emoji
+    set word ""
+    set word_2 ""
+    if count $argv >= 1
+        set word $argv[1]
+    end
+    if count $argv > 1
+        set word_2 $argv[2]
+    end
+    if test -n "$word_2"
+        set out (jq 'to_entries[] | .key, .value' ascii-emojis.json | rg $word_2 -A 1 | rg $word -A 1 -o | rg '^"(.*)"$' | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | shuf -n 1 | sed 's/\n//g')
+    else if test -n "$word"
+        set out (jq 'to_entries[] | .key, .value' ascii-emojis.json | rg $word -A 1 -o | rg '^"(.*)"$' | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | shuf -n 1 | sed 's/\n//g')
+    else
+        set out (jq 'to_entries[] | .value' ascii-emojis.json | shuf -n 1 | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | sed 's/\n//g')
+    end
+    echo $out
+end
+
 function hp
     set output (sh -c "bhop $argv")
     if not string match -q "*|*" $output
