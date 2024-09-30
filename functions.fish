@@ -8,26 +8,31 @@ function arrout
     end
 end
 
-function emoji
-    set word ""
-    set word_2 ""
-    if count $argv >= 1
-        set word $argv[1]
+function emoji --description "Get an emoji"
+    set pattern $argv[1]
+    set shift 0
+    set lines 1
+    if test $argv[1] = "-m" || test $argv[1] = "--multi"
+        set shift 1
     end
-    if count $argv > 1
-        set word_2 $argv[2]
+    set params (count $argv)
+    if test $params -ge (math 2 + $shift)
+        set -l w1 $argv[(math 1 + $shift)]
+        set -l w2 $argv[(math 2 + $shift)]
+        set pattern "$w1.*$w2|$w2.*$w1"
     end
-    if test -n "$word_2"
-        set out (jq 'to_entries[] | .key, .value' ascii-emojis.json | rg $word_2 -A 1 | rg $word -A 1 -o | rg '^"(.*)"$' | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | shuf -n 1 | sed 's/\n//g')
-    else if test -n "$word"
-        set out (jq 'to_entries[] | .key, .value' ascii-emojis.json | rg $word -A 1 -o | rg '^"(.*)"$' | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | shuf -n 1 | sed 's/\n//g')
-    else
-        set out (jq 'to_entries[] | .value' ascii-emojis.json | shuf -n 1 | sed 's/^[[:space:]]*"//g' | sed 's/"[[:space:]]*$//g' | sed 's/\n//g')
+    set out (jq -r 'to_entries[] | .key, .value' $HOME/.config/fish/ascii-emojis.json | rg "eyes.*face|face.*eyes" -A 1 --context-separator="" -o -r "" | rg -N "\S")
+    if test $shift = 1
+        set lines (count $out)
     end
-    echo $out
+    printf %s\n $out | shuf -n $lines
 end
 
-function hp
+function emojis --description "Select from emojis"
+    emoji -m $argv | fzf
+end
+
+function hp --description "Hop around the terminal"
     set output (sh -c "bhop $argv")
     if not string match -q "*|*" $output
         echo $output
@@ -36,5 +41,34 @@ function hp
         cd $cmds[1]
         sh -c "$cmds[2]"
     end
+end
+
+function manp --description "A simple manpage result without the BS backspace characters"
+    man $argv | col -b
+end
+
+function src --description "Search a codebase and open files in your editor"
+    set -l options 'i/include' 'x/exclude' 'd/dont_include_i' 'e/editor'
+    argparse $options -- $argv[2..]
+    set cmd $argv[1]
+    if not set -q _flag_dont_include_i
+        set cmd "$cmd -i"
+    end
+    if set -q _flag_include
+        set cmd = "$cmd -t $_flag_include"
+    end
+    if set -q _flag_exclude
+        set cmd = "$cmd -T $_flag_exclude"
+    end
+    set editor "nvim"
+    if set -q _flag_editor
+        set editor $_flag_editor
+    end
+    set cmd = "rg $cmd -l | xargs $editor -c '/$($argv[1])'"
+    fish -c $cmd
+end
+
+function pysrc --description "Search a Python codebase for a string"
+    src $argv[1] T=rst t=py g='!__init__.py' g="!test_*"
 end
 
