@@ -9,19 +9,14 @@ function arrout
 end
 
 function emoji --description "Get an emoji"
-    set pattern $argv[1]
-    set shift 0
+    set multi 0
     set lines 1
+    set pattern "$argv[1].*$argv[2]|$argv[2].*$argv[1]"
     if test $argv[1] = "-m" || test $argv[1] = "--multi"
-        set shift 1
+        set pattern "$argv[2].*$argv[3]|$argv[3].*$argv[2]"
+        set multi 1
     end
-    set params (count $argv)
-    if test $params -ge (math 2 + $shift)
-        set -l w1 $argv[(math 1 + $shift)]
-        set -l w2 $argv[(math 2 + $shift)]
-        set pattern "$w1.*$w2|$w2.*$w1"
-    end
-    set out (jq -r 'to_entries[] | .key, .value' $HOME/.config/fish/ascii-emojis.json | rg "eyes.*face|face.*eyes" -A 1 --context-separator="" -o -r "" | rg -N "\S")
+    set out (jq -r 'to_entries[] | .key, .value' $HOME/.config/fish/ascii-emojis.json | rg "$pattern" -A 1 --context-separator="" -o -r "" | rg -N "\S")
     if test $shift = 1
         set lines (count $out)
     end
