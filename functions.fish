@@ -15,9 +15,14 @@ function emoji --description "Get an emoji"
     if test $argv[1] = "-m" || test $argv[1] = "--multi"
         set pattern "$argv[2].*$argv[3]|$argv[3].*$argv[2]"
         set multi 1
+    else if test $argv[1] = "-a" || test $argv[1] = "--any"
+        set pattern "[\\w-]+"
+    else if test $argv[1] = "-h" || test $argv[1] = "--help"
+        echo "Usage: emoji [-m|--multi] [-a|--any] [-h|--help] <pattern> [OPTIONAL]<pattern>"
+        return
     end
     set out (jq -r 'to_entries[] | .key, .value' $HOME/.config/fish/ascii-emojis.json | rg "$pattern" -A 1 --context-separator="" -o -r "" | rg -N "\S")
-    if test $shift = 1
+    if test $multi = 1
         set lines (count $out)
     end
     printf %s\n $out | shuf -n $lines

@@ -13,6 +13,10 @@ end
 source "$FISH_CONFIG_DIR/env.fish"
 source "$FISH_CONFIG_DIR/functions.fish"
 
+set ghost " .-." "(o o) boo!" "| O \\" " \\   \\" "  `~~~'"
+set cactus "    ,*-." "    |  |" ",.  |  |" "| |_|  | ,." "`---.  |_| |" "    |  .--`" "    |  |" "    |  | howdy partner!"
+set fish_greeting "$(printf %s\n $cactus)"
+
 set local_configs "$FISH_CONFIG_DIR/locals/default.local.fish"
 if test -e "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
     set local_configs "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
