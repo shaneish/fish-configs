@@ -68,7 +68,10 @@ function src --description "Search a codebase and open files in your editor"
     fish -c $cmd
 end
 
-function pysrc --description "Search a Python codebase for a string"
-    src $argv[1] T=rst t=py g='!__init__.py' g="!test_*"
+function psx --description "Search a Python codebase for a string"
+    rg $argv -i -l -T rst -t py -g='!__init__.py' -g="!test_*" -g="!examples/**/*" -g="!databricks/sdk/mixins*" | xargs nvim -c "/$argv[1]"
 end
 
+function pfx --description "Search a Python codebase for a string"
+    rg $argv -i -l -T rst -t py -g='!__init__.py' -g="!test_*" -g="!examples/**/*" -g="!databricks/sdk/mixins*" | sk -m | xargs nvim -c "/$argv[1]"
+end
