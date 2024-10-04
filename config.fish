@@ -15,28 +15,18 @@ end
 
 source "$FISH_CONFIG_DIR/env.fish"
 source "$FISH_CONFIG_DIR/functions.fish"
-
-set local_configs "$FISH_CONFIG_DIR/locals/default.local.fish"
+source "$FISH_CONFIG_DIR/locals/default.local.fish"
 if test -e "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
-    set local_configs "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
+    source "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
 end
-source $local_configs
 
 
 if status is-interactive
     fish_vi_key_bindings
-    if not string match -q "" (which startship)
+    if not string match -q "" (which starship)
         starship init fish | source
     end
     fish_config theme choose Batman
-end
-
-if test -e "locals/$(id -un).local.fish"
-    source "locals/$(id -un).local.fish"
-else
-    if test -e "locals/default.local.fish"
-        source "locals/default.local.fish"
-    end
 end
 
 if not string match -q "" (which fzf)
