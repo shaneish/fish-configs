@@ -1,7 +1,7 @@
 set -gx FISH_CONFIG_DIR "$HOME/.config/fish"
 for f in (string split " " $fish_user_paths)
     set ghost " .-." "(o o) boo!" "| O \\" " \\   \\" "  `~~~'"
-    set cactus "        ,*-." "        |  |" "    ,.  |  |" "    | |_|  | ,." "    `---.  |_| |" "        |  .--`" "        |  |" "        |  | howdy partner! take arms!"
+    set cactus "" "        ,*-." "        |  |" "    ,.  |  |" "    | |_|  | ,." "    `---.  |_| |" "        |  .--`" "        |  |" "        |  | howdy partner! take arms!"
     set_color green
     set fish_greeting "$(printf %s\n $cactus)"
     set_color normal
