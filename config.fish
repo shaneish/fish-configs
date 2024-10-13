@@ -1,10 +1,5 @@
 set -gx FISH_CONFIG_DIR "$HOME/.config/fish"
 for f in (string split " " $fish_user_paths)
-    set ghost " .-." "(o o) boo!" "| O \\" " \\   \\" "  `~~~'"
-    set cactus "" "        ,*-." "        |  |" "    ,.  |  |" "    | |_|  | ,." "    `---.  |_| |" "        |  .--`" "        |  |" "        |  | howdy partner! take arms!"
-    set_color green
-    set fish_greeting "$(printf %s\n $cactus)"
-    set_color normal
     if test -e $f
         set -l parent_dir (string split "/" $f --right --m=1)
         set -l fish_config (string join "/" $parent_dir[1] "config.fish")
@@ -24,6 +19,13 @@ end
 
 
 if status is-interactive
+    # set cactus "" "        ,*-." "        |  |" "    ,.  |  |" "    | |_|  | ,." "    `---.  |_| |" "        |  .--`" "        |  |" "        |  | howdy partner! take arms!"
+    # set_color green
+    # set fish_greeting "$(printf %s\n $cactus)"
+    # set_color normal
+    source "$FISH_CONFIG_DIR/greeting.fish"
+    # set fish_greeting "⠀⠀⠀⠀⠀⠀                  ⠀⠀howdy partner! take arms!"
+    set fish_greeting ""
     fish_vi_key_bindings
     if not string match -q "" (which starship)
         starship init fish | source
