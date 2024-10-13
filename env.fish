@@ -1,7 +1,9 @@
-fish_add_path $HOME/.local/bin
-fish_add_path $HOME/.cargo/bin
-fish_add_path /opt/homebrew/bin
-
+fish_add_path -agP (printf "$HOME/.local/bin")
+fish_add_path -agP (printf "$HOME/.cargo/bin")
+fish_add_path -pgP (printf "/opt/homebrew/bin")
+fish_add_path -agP (printf "$HOME/go/bin")
+fish_add_path -agP (printf "$HOME/fzf/bin")
+fish_add_path -agP "/home/linuxbrew/.linuxbrew/bin"
 
 set -l git_atoms "refname" "objecttype" "objectsize" "objectname" "deltabase" "tree" "parent" "numparent" "object" "type" "tag" "author" "authorname" "authoremail" "authordate" "committer" "committername" "committeremail" "committerdate" "tagger" "taggername" "taggeremail" "taggerdate" "creator" "creatordate" "describe" "subject" "body" "trailers" "contents" "signature" "raw" "upstream" "push" "symref" "flag" "HEAD" "color" "worktreepath" "align" "end" "if" "then" "else" "rest" "ahead-behind"
 
