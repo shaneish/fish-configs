@@ -14,6 +14,6 @@ set_color A8BB4C; printf '%s\n' '
     ⠀⠈⢻⣦⠀⠀⠀⠀⠀⠘⠻⢶⣶⡆⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡟⠁⠀
     ⠀⠀⠀⠹⣷⣄⠀⠀⠀⠀⠀⠀⢸⡇⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⣠⣾⠏⠀⠀⠀
     ⠀⠀⠀⠀⠈⠛⢷⣦⣀⠀⠀⠀⣸⡇⠀⢸⣿⠀⠀⠀⠀⣀⣴⡾⠛⠁⠀( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⢷⡶⠿⠁⠀⠀⠻⣷⣶⡾⠟⠛⠁⠀⠀ howdy partner! take arms!'
+    ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⢷⡶⠿⠁⠀⠀⠻⣷⣶⡾⠟⠛⠁⠀⠀⚔ howdy partner! take arms!'
 set_color normal
 set fish_greeting ""
