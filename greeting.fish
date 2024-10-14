@@ -13,8 +13,7 @@ set_color A8BB4C; printf '%s\n' '
     ⠀⢻⣇⠀⠀⠀⠀⠀⠀⣿⡄⠙⠿⠃⠀⢀⣾⠟⠛⠉⠀⠀⠀⠀⠀⠀⠀⣸⡟⠀
     ⠀⠈⢻⣦⠀⠀⠀⠀⠀⠘⠻⢶⣶⡆⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⠀⠀⣴⡟⠁⠀
     ⠀⠀⠀⠹⣷⣄⠀⠀⠀⠀⠀⠀⢸⡇⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⣠⣾⠏⠀⠀⠀
-    ⠀⠀⠀⠀⠈⠛⢷⣦⣀⠀⠀⠀⣸⡇⠀⢸⣿⠀⠀⠀⠀⣀⣴⡾⠛⠁⠀⠀⠀⠀
-    ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⢷⡶⠿⠁⠀⠀⠻⣷⣶⡾⠟⠛⠁⠀⠀howdy partner! take arms!'
+    ⠀⠀⠀⠀⠈⠛⢷⣦⣀⠀⠀⠀⣸⡇⠀⢸⣿⠀⠀⠀⠀⣀⣴⡾⠛⠁⠀( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/⠀⠀⠀
+    ⠀⠀⠀⠀⠀⠀⠀⠈⠛⠻⢷⡶⠿⠁⠀⠀⠻⣷⣶⡾⠟⠛⠁⠀⠀ howdy partner! take arms!'
 set_color normal
-# set fish_greeting "⠀⠀⠀⠀⠀⠀                  ⠀⠀howdy partner! take arms!"
 set fish_greeting ""
