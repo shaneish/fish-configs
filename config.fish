@@ -10,21 +10,16 @@ for f in (string split " " $fish_user_paths)
     end
 end
 
-source "$FISH_CONFIG_DIR/env.fish"
-source "$FISH_CONFIG_DIR/functions.fish"
 source "$FISH_CONFIG_DIR/locals/default.local.fish"
 if test -e "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
     source "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
 end
+source "$FISH_CONFIG_DIR/functions.fish"
+source "$FISH_CONFIG_DIR/env.fish"
 
 
 if status is-interactive
-    # set cactus "" "        ,*-." "        |  |" "    ,.  |  |" "    | |_|  | ,." "    `---.  |_| |" "        |  .--`" "        |  |" "        |  | howdy partner! take arms!"
-    # set_color green
-    # set fish_greeting "$(printf %s\n $cactus)"
-    # set_color normal
     source "$FISH_CONFIG_DIR/greeting.fish"
-    # set fish_greeting "⠀⠀⠀⠀⠀⠀                  ⠀⠀howdy partner! take arms!"
     set fish_greeting ""
     fish_vi_key_bindings
     if not string match -q "" (which starship)
