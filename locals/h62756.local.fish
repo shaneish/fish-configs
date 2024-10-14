@@ -3,7 +3,12 @@ set -gx PY_VENV "/Users/h62756/.config/pyenvs/v3.12"
 set -gx DBRX_PY_VENV "/Users/h62756/.config/pyenvs/dbrx"
 alias py="$PY_VENV_BIN/bin/python3"
 alias ipy="$PY_VENV_BIN/bin/ipython"
+
+$HOME/.config/extra-configs/starship_nav 0
 alias p="$HOME/.config/other-configs/starship_nav"
+alias p0="p 0"
+alias p1="p 1"
+alias p2="p 2"
 
 source "$FISH_CONFIG_DIR/locals/cigna_certs.fish"
 

@@ -40,3 +40,5 @@ alias gd="git diff"
 alias gdo="git diff origin/(git branch --show-current)"
 alias gdm="git diff (gmb)"
 alias gdom="git diff origin/HEAD"
+
+alias cls="clear; fish"
