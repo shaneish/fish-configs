@@ -25,6 +25,7 @@ if status is-interactive
         starship init fish | source
     end
     fish_config theme choose Batdog
+    p 0
 end
 
 if not string match -q "" (which fzf)
