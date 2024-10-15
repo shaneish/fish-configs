@@ -15,5 +15,7 @@ set_color A8BB4C; printf '%s\n' '
     ⠀⠀⠀⠹⣷⣄⠀⠀⠀⠀⠀⠀⢸⡇⠀⢸⣿⠀⠀⠀⠀⠀⠀⠀⣠⣾⠏⠀⠀ദ്ദി(ᵔᗜᵔ) ٩(ˊᗜˋ*)و ⩜⃝
     ⠀⠀⠀⠀⠈⠛⢷⣦⣀⠀⠀⠀⣸⡇⠀⢸⣿⠀⠀⠀⠀⣀⣴⡾⠛⠁⠀( う-´)づ︻╦̵̵̿╤── \(˚☐˚”)/⠀⠀⠀
 ( ͠° ͟ʖ ͡°)⠀⠀⠀⠈⠛⠻⢷⡶⠿⠁⠀⠀⠻⣷⣶⡾⠟⠛⠁⠀⠀⚔ howdy partner! take arms!'
+set_color ffd700; printf '%s\n' '' ">> $PWD"
 set_color normal
-set fish_greeting ""
+set SPACEFISH_PROMPT_ADD_NEWLINE false
+set -U fish_greeting

@@ -2,6 +2,7 @@ set -gx PYTHON_VENV_DIR "/Users/h62756/.config/pyenvs"
 set -gx PY_VENV "/Users/h62756/.config/pyenvs/v3.12"
 set -gx DBRX_PY_VENV "/Users/h62756/.config/pyenvs/dbrx"
 alias py="$PY_VENV_BIN/bin/python3"
+alias npy=". $HOME/.config/nvim/.venv/bin/activate.fish; nvim"
 alias ipy="$PY_VENV_BIN/bin/ipython"
 
 $HOME/.config/other-configs/starship_switch 0

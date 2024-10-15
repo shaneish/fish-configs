@@ -20,7 +20,6 @@ source "$FISH_CONFIG_DIR/env.fish"
 
 if status is-interactive
     source "$FISH_CONFIG_DIR/greeting.fish"
-    set fish_greeting ""
     fish_vi_key_bindings
     if not string match -q "" (which starship)
         starship init fish | source
