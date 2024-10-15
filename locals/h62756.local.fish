@@ -5,9 +5,6 @@ alias py="$PY_VENV_BIN/bin/python3"
 alias npy=". $HOME/.config/nvim/.venv/bin/activate.fish; nvim"
 alias ipy="$PY_VENV_BIN/bin/ipython"
 
-$HOME/.config/other-configs/starship_switch 0
-alias p="$HOME/.config/other-configs/starship_switch"
-
 source "$FISH_CONFIG_DIR/locals/cigna_certs.fish"
 
 set EDITOR "/opt/homebrew/bin/nvim"

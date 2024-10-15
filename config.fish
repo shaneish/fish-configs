@@ -10,12 +10,12 @@ for f in (string split " " $fish_user_paths)
     end
 end
 
+source "$FISH_CONFIG_DIR/env.fish"
 source "$FISH_CONFIG_DIR/locals/default.local.fish"
 if test -e "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
     source "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
 end
 source "$FISH_CONFIG_DIR/functions.fish"
-source "$FISH_CONFIG_DIR/env.fish"
 
 
 if status is-interactive

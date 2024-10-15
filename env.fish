@@ -42,3 +42,11 @@ alias gdm="git diff (gmb)"
 alias gdom="git diff origin/HEAD"
 
 alias cls="clear; fish"
+
+set -gx CONFIG_DIRECTORY $HOME/.config
+set -gx NVIM_DIRECTORY $CONFIG_DIRECTORY/nvim
+set -gx NVIM_PYENV_ACTIVATE (fd "activate.fish" $NVIM_DIRECTORY -t f | head -n 1)
+set -gx STARSHIP_DIRECTORY (fd "starship-prompts" $CONFIG_DIRECTORY -t d | head -n 1)
+set -gx STARSHIP_SWITCHER (fd "starship_switch" $CONFIG_DIRECTORY -t f | head -n 1)
+alias p="$STARSHIP_SWITCHER"
+alias nvm="$NVIM_PYENV_ACTIVATE; nvim"
