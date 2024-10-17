@@ -36,12 +36,18 @@ alias gwta="git worktree add"
 alias gwtr="git worktree remove"
 alias gh="git rev-parse --abbrev-ref origin/HEAD"
 alias gmb="gh | sd '\w+/' ''"
-alias gd="git diff"
-alias gdo="git diff origin/(git branch --show-current)"
-alias gdm="git diff (gmb)"
-alias gdom="git diff origin/HEAD"
-
 alias cls="clear; fish"
+if not string match -q "" (which dunk)
+    alias gd="git diff | dunk"
+    alias gdo="git diff origin/(git branch --show-current) | dunk"
+    alias gdm="git diff (gmb) | dunk"
+    alias gdom="git diff origin/HEAD | dunk"
+else
+    alias gd="git diff"
+    alias gdo="git diff origin/(git branch --show-current)"
+    alias gdm="git diff (gmb)"
+    alias gdom="git diff origin/HEAD"
+end
 
 set -gx CONFIG_DIRECTORY $HOME/.config
 set -gx NVIM_DIRECTORY $CONFIG_DIRECTORY/nvim
@@ -59,3 +65,4 @@ function handle_empty_line
 end
 
 bind \r handle_empty_line
+
