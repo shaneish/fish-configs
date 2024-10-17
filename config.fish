@@ -31,3 +31,4 @@ end
 if not string match -q "" (which fzf)
     fzf --fish | source
 end
+
