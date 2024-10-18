@@ -10,11 +10,11 @@ for f in (string split " " $fish_user_paths)
     end
 end
 
-source "$FISH_CONFIG_DIR/env.fish"
 source "$FISH_CONFIG_DIR/locals/default.local.fish"
 if test -e "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
     source "$FISH_CONFIG_DIR/locals/$(id -un).local.fish"
 end
+source "$FISH_CONFIG_DIR/env.fish"
 source "$FISH_CONFIG_DIR/functions.fish"
 
 
@@ -26,9 +26,13 @@ if status is-interactive
     end
     fish_config theme choose Batdog
     . 0
+    if not string match -q "" (which python)
+        pyv
+    end
 end
 
 if not string match -q "" (which fzf)
     fzf --fish | source
 end
 
+fish_add_path /Users/h62756/.modular/bin
