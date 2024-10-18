@@ -25,7 +25,6 @@ if status is-interactive
         starship init fish | source
     end
     fish_config theme choose Batdog
-    . 0
     if not string match -q "" (which python)
         pyv
     end
