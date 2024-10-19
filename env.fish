@@ -38,7 +38,7 @@ alias gd="git diff"
 alias gh="git rev-parse --abbrev-ref origin/HEAD"
 alias gmb="gh | sd '\w+/' ''"
 alias cls="clear; fish"
-if not string match -q "" (which dunk)
+if type -q "dunk"
     alias gdd="git diff | dunk"
     alias gdo="git diff origin/(git branch --show-current) | dunk"
     alias gdm="git diff (gmb) | dunk"

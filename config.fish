@@ -21,7 +21,7 @@ source "$FISH_CONFIG_DIR/functions.fish"
 if status is-interactive
     source "$FISH_CONFIG_DIR/greeting.fish"
     fish_vi_key_bindings
-    if not string match -q "" (which starship)
+    if type -q "starship"
         starship init fish | source
     end
     fish_config theme choose Batdog
