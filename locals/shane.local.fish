@@ -13,5 +13,4 @@ set -gx EDITOR "/usr/bin/nvim"
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
-fish_add_path /Users/h62756/.modular/bin
 fish_add_path /home/shane/.modular/bin
