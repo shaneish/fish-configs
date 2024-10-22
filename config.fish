@@ -28,6 +28,13 @@ if status is-interactive
     if not string match -q "" (which python)
         pyv
     end
+    set fish_cursor_default block
+    set fish_cursor_insert line blink
+    set fish_cursor_replace_one underscore blink
+    set fish_cursor_replace underscore blink
+    set fish_cursor_external line blink
+    set fish_cursor_visual block blink
+    set -gx fish_vi_force_cursor line blink
 end
 
 if not string match -q "" (which fzf)

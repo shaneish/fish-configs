@@ -86,8 +86,6 @@ function parse_greeting
                 set -g final_image $image $final_line $extra_spaces(set_color $prompt_color)$current_prompt
             end
         end
-        # else
-        #     set -g final_image $image
     end
     set_color $greeting_color; printf '%s\n' $final_image
     set_color normal
