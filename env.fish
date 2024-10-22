@@ -49,8 +49,8 @@ else
     alias gdom="git diff origin/HEAD"
 end
 if type -q "bhop"
-    alias _hp_fzf_fixed="hp ls | fnk filter -f 'f -> \":\" not in f' | fzf -m | fnk map -f 'f -> f.split()[-1]' | xargs"
-    alias _hp_fzf="hp ls | rg '\->' | fzf -m | awk -F'->' '{print $2}' | xargs"
+    alias _hp_fzf_fixed="bhop __bhop_list__ | fnk filter -f 'f -> \":\" not in f' | fzf -m | fnk map -f 'f -> f.split()[-1]' | xargs"
+    alias _hp_fzf="bhop __bhop_list__ | rg '\->' | fzf -m | awk -F'->' '{print $2}' | xargs"
     alias hg="cd (_hp_fzf_fixed)"
     alias hf="_hp_fzf_fixed $EDITOR"
 end
