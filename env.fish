@@ -48,11 +48,18 @@ else
     alias gdm="git diff (gmb)"
     alias gdom="git diff origin/HEAD"
 end
-if type -q "bhop"
-    alias _hp_fzf_fixed="bhop __bhop_list__ | fnk filter -f 'f -> \":\" not in f' | fzf -m | fnk map -f 'f -> f.split()[-1]' | xargs"
-    alias _hp_fzf="bhop __bhop_list__ | rg '\->' | fzf -m | awk -F'->' '{print $2}' | xargs"
-    alias hg="cd (_hp_fzf_fixed)"
-    alias ho="_hp_fzf_fixed $EDITOR"
+if type -q "fzf"
+    if type -q "bhop"
+        alias _hp_fzf_fixed="bhop __bhop_list__ | fnk filter -f 'f -> \":\" not in f' | fzf -m | fnk map -f 'f -> f.split()[-1]' | xargs"
+        alias _hp_fzf="bhop __bhop_list__ | rg '\->' | fzf -m | awk -F'->' '{print $2}' | xargs"
+        alias hg="cd (_hp_fzf_fixed)"
+        alias ho="_hp_fzf_fixed $EDITOR"
+    end
+    alias lh="history | nl | awk -F'\t' '{print $2}' | fzf"
+end
+
+if type -q "fselect"
+    alias fs="fselect"
 end
 
 set -gx CONFIG_DIRECTORY $HOME/.config
