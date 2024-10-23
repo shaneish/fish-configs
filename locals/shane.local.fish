@@ -1,7 +1,8 @@
-set -gx DEFAULT_PY_VENV $HOME/.config/pyvenv/venv
+set -gx DEFAULT_PY_VENV $HOME/.config/pyvenv/fast
 alias py="python"
 alias ipy="ipython"
 alias mvim="nvim -u $HOME/.config/nvim/minit.vim"
+alias pyv="source $DEFAULT_PY_VENV/bin/activate.fish"
 
 alias snvm="sudo nvm"
 alias boxes="flatpak run org.gnome.Boxes"
